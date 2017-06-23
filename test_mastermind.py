@@ -14,6 +14,7 @@ class MastermindTestCase(unittest.TestCase):
         self.MEDIUM_MAX = 7777
         self.HARD_MAX = 9999
 
+    # @unittest.skip("working on function")
     def test_number_of_matches(self):
         self.assertEqual(mastermind.number_of_matches(self.key_list,
                                                       self.two_matches), "**")
