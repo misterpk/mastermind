@@ -29,35 +29,10 @@ class MastermindTestCase(unittest.TestCase):
                          self.correct_guess_int)
 
     def test_generate_number(self):
-        test_status = False
-        number_of_runs = 1000
-
-        for i in range(number_of_runs):
-            generated_value = \
-                mastermind.convert_to_number(mastermind.generate_number("easy"))
-            if generated_value > self.EASY_MAX:
-                test_status = False
-            else:
-                test_status = True
-
-        self.assertTrue(test_status)
-
-        for i in range(number_of_runs):
-            generated_value = \
-                mastermind.convert_to_number(mastermind.generate_number("medium"))
-            if generated_value > self.MEDIUM_MAX:
-                test_status = False
-            else:
-                test_status = True
-
-        self.assertTrue(test_status)
-
-        for i in range(number_of_runs):
-            generated_value = \
-                mastermind.convert_to_number(mastermind.generate_number("hard"))
-            if generated_value > self.HARD_MAX:
-                test_status = False
-            else:
-                test_status = True
-
-        self.assertTrue(test_status)
+        for i in range(1000):
+            self.assertTrue(mastermind.convert_to_number(
+                mastermind.generate_number("easy")) <= self.EASY_MAX)
+            self.assertTrue(mastermind.convert_to_number(
+                mastermind.generate_number("easy")) <= self.MEDIUM_MAX)
+            self.assertTrue(mastermind.convert_to_number(
+                mastermind.generate_number("easy")) <= self.HARD_MAX)
