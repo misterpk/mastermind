@@ -33,6 +33,6 @@ class MastermindTestCase(unittest.TestCase):
             self.assertTrue(mastermind.convert_to_number(
                 mastermind.generate_number("easy")) <= self.EASY_MAX)
             self.assertTrue(mastermind.convert_to_number(
-                mastermind.generate_number("easy")) <= self.MEDIUM_MAX)
+                mastermind.generate_number("medium")) <= self.MEDIUM_MAX)
             self.assertTrue(mastermind.convert_to_number(
-                mastermind.generate_number("easy")) <= self.HARD_MAX)
+                mastermind.generate_number("hard")) <= self.HARD_MAX)
