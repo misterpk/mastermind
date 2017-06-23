@@ -9,33 +9,32 @@ def generate_number(difficulty):
     easy_max = 5
     medium_max = 7
     hard_max = 9
-    while True:
-        if str(difficulty).isalpha() and str(difficulty).lower() == "easy":
-            print("You've selected easy. The number will be between "
-                  "0000 and 5555")
-            for i in range(numbers):
-                generated_number.append(str(random.randint(minimum, easy_max)))
-        elif str(difficulty).isalpha() and str(difficulty).lower() == "medium":
-            print("You've selected medium. The number will be between "
-                  "0000 and 7777")
-            for i in range(numbers):
-                generated_number.append(
-                    str(random.randint(minimum, medium_max)))
-        elif str(difficulty).isalpha() and str(difficulty).lower() == "hard":
-            print("You've selected hard. The number will be between "
-                  "0000 and 9999")
-            for i in range(numbers):
-                generated_number.append(str(random.randint(minimum, hard_max)))
-        return generated_number
+
+    if difficulty == "easy":
+        for i in range(numbers):
+            generated_number.append(str(random.randint(minimum, easy_max)))
+    elif difficulty == "medium":
+        for i in range(numbers):
+            generated_number.append(
+                str(random.randint(minimum, medium_max)))
+    elif difficulty == "hard":
+        for i in range(numbers):
+            generated_number.append(str(random.randint(minimum, hard_max)))
+
+    return generated_number
+
 
 
 def get_difficulty():
     """Get difficulty player desires"""
     while True:
-        difficulty = input("Enter a difficulty (easy, medium, hard): ")
+        difficulty = input("Easy: Number 0000-5555\n"
+                           "Medium: 0000-7777\n"
+                           "Hard: 0000-9999\n"
+                           "Enter a difficulty: ")
         if difficulty.lower() == "easy" or difficulty.lower() == "medium" \
                 or difficulty.lower() == "hard":
-            return difficulty
+            return difficulty.lower()
         else:
             print("Invalid entry. Please enter easy, medium or hard.")
 
